@@ -70,59 +70,6 @@
 			"response": []
 		},
 		{
-			"name": "Получение ID заказа",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{Token}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Cookie",
-						"value": "{{Token}}",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{Base_url}}/short",
-					"host": [
-						"{{Base_url}}"
-					],
-					"path": [
-						"short"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Изменение количества товара в корзине",
 			"event": [
 				{
