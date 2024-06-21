@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f3f62a41-d496-410a-bd76-f998d2db1929",
+		"_postman_id": "7f6f0621-c06a-4eba-9806-4ac2f1e6cca4",
 		"name": "Смоук-тест корзины \"Читай-город\"",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "31368643"
@@ -64,6 +64,59 @@
 					],
 					"path": [
 						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение ID заказа",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var key = \"Order_ID\";\r",
+							"var value = pm.response.json().products[0].id;\r",
+							"pm.collectionVariables.set(key, value);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "{{Token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Base_url}}",
+					"host": [
+						"{{Base_url}}"
 					]
 				}
 			},
